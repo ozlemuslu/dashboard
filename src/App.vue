@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <Dashboard msg="Test"/>
+    <Dashboard/>
   </div>
 </template>
 
@@ -11,7 +11,7 @@ export default {
   name: 'App',
   components: {
     Dashboard
-  }
+}
 }
 </script>
 
