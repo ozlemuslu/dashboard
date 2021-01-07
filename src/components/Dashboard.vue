@@ -1,10 +1,15 @@
 <template>
-  <div>
-    <h1>Dashboard</h1>
-    <div>{{ posts}}</div>
+  <div class="navbar">
+  <nav>
+  <span><strong>{{ $t('dashboard.dashboard')}}</strong></span>
+   <a href="#"> <fa-icon icon="home"/> </a>
+  </nav>
+    
+    <!-- <div>{{ posts}}</div>
     <div>{{ comments}}</div>
-    <div>{{ albums}}</div>
+    <div>{{ albums}}</div> -->
   </div>
+
 </template>
 
 <script>
@@ -39,5 +44,5 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
 </style>
