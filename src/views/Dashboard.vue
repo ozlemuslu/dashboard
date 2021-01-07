@@ -3,6 +3,7 @@
   <nav>
   <span><strong>{{ $t('dashboard.dashboard')}}</strong></span>
    <a href="#"> <fa-icon icon="home"/> </a>
+   <span><strong>{{ $t('dashboard.about')}}</strong></span>
   </nav>
     
     <!-- <div>{{ posts}}</div>

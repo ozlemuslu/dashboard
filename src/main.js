@@ -6,6 +6,7 @@ import { fas } from '@fortawesome/free-solid-svg-icons';
 import VueI18n from 'vue-i18n';
 import store from './store';
 import messages from './locale/i18n';
+import router from './router'
 
 Vue.component('font-awesome-icon', FontAwesomeIcon);
 Vue.component('fa-icon', FontAwesomeIcon);
@@ -24,7 +25,8 @@ Vue.config.lang = 'tr';
 new Vue({
   i18n,
   store,
-  render: h => h(App),
+  router,
+  render: h => h(App)
 }).$mount('#app');
 i18n.locale = 'tr';
 
