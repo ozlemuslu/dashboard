@@ -1,8 +1,29 @@
 .section-dashboard {
-  margin-left: 15px;
+  margin-top: 50px;
   height: 100vh;
 }
 
 .white-smoke {
   background-color:whitesmoke;
+  height: auto;
+}
+
+.is-pulled-right{
+  float: right;
+}
+
+.is-pulled-left{
+  float: left;
+}
+
+.success-button {
+  background-color: green;
+}
+
+.quit-button {
+  background-color:gray;
+}
+
+.margin-modal {
+  margin: 20px 20px 20px 20px;
 }

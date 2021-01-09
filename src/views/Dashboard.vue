@@ -1,7 +1,7 @@
 <template>
 <div>
   <navbar class="sticky"/>
-  <div class="grid-navbar">
+  <div class="">
     <div class="col-navbar white-smoke">
       <div class="section-dashboard">
       </div>
@@ -9,6 +9,12 @@
 
     <div class="col-navbar">
       <div class="section-dashboard">
+        <!-- {{albums}} -->
+        <div v-for="post in posts"
+          :key="post.id"
+          >
+            {{ post}}
+        </div>
       </div>
     </div>
 
@@ -16,7 +22,7 @@
       <div class="section-dashboard">
       </div>
     </div>
-</div>
+ </div>
 </div>
 
 </template>
@@ -38,13 +44,8 @@ export default {
       filterText: undefined,
     };
   },
-  computed: {
-    availableLang() {
-      return this.$store.state.availableLocales;
-    },
-  },
   mounted() {
-    this.getComments();
+    this.getPosts();
   },
   methods: {
   changeLanguage() {
@@ -56,10 +57,10 @@ export default {
   async getPosts() {
     this.posts = await dashboardService.getPosts();
    },
-   async getComments() {
+  async getComments() {
     this.comments = await dashboardService.getComments();
    },
-    async getAlbums() {
+  async getAlbums() {
     this.albums = await dashboardService.getAlbums();
    },
   },

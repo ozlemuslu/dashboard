@@ -7,11 +7,15 @@ import VueI18n from 'vue-i18n';
 import store from './store';
 import messages from './locale/i18n';
 import router from './router'
+import VModal from 'vue-js-modal';
+import VTooltip from 'v-tooltip';
 
 Vue.component('font-awesome-icon', FontAwesomeIcon);
 Vue.component('fa-icon', FontAwesomeIcon);
 library.add(fas);
 Vue.use(VueI18n);
+Vue.use(VModal, { dynamic: true, dialog: true });
+Vue.use(VTooltip);
 
 const i18n = new VueI18n({
   locale: 'tr', // set locale
