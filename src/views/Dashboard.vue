@@ -1,24 +1,33 @@
 <template>
-  <div class="navbar">
-  <nav>
-  <span><strong>{{ $t('dashboard.dashboard')}}</strong></span>
-   <a href="#"> <fa-icon icon="home"/> </a>
-   <span><strong>{{ $t('dashboard.about')}}</strong></span>
-  </nav>
-    
-    <!-- <div>{{ posts}}</div>
-    <div>{{ comments}}</div>
-    <div>{{ albums}}</div> -->
-  </div>
+<div>
+  <navbar class="sticky"/>
+  <div class="grid-navbar">
+    <div class="col-navbar white-smoke">
+      <div class="section-dashboard">
+      </div>
+    </div>
+
+    <div class="col-navbar">
+      <div class="section-dashboard">
+      </div>
+    </div>
+
+     <div class="col-navbar white-smoke">
+      <div class="section-dashboard">
+      </div>
+    </div>
+</div>
+</div>
 
 </template>
-
 <script>
 
+import navbar from '../components/navbar.vue';
 import dashboardService from '../services/dashboard';
 
 export default {
   name: 'Dashboard',
+  components: { navbar },
   props: {
   },
   data() {
@@ -26,12 +35,24 @@ export default {
       posts: [],
       comments: [],
       albums: [],
+      filterText: undefined,
     };
+  },
+  computed: {
+    availableLang() {
+      return this.$store.state.availableLocales;
+    },
   },
   mounted() {
     this.getComments();
   },
   methods: {
+  changeLanguage() {
+    
+  },
+  filterUsers() {
+    console.log('filterUsers')
+  },
   async getPosts() {
     this.posts = await dashboardService.getPosts();
    },

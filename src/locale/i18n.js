@@ -9,6 +9,7 @@ export default {
     dashboard: {
       dashboard: 'Panel',
       about: 'Hakkında',
+      filterUsers: 'Kullanıcı filtrele',
     },
   },
   en: {
@@ -21,6 +22,7 @@ export default {
     dashboard: {
       dashboard: 'Dashboard',
       about: 'About',
+      filterUsers: 'Filter users',
     },
   },
 }

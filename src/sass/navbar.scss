@@ -1,0 +1,33 @@
+.grid-navbar{
+  margin-left: -15px;
+}
+
+.col-navbar{
+  width: 33.33%;
+  float: left;
+}
+
+.section-navbar{
+  margin-left: 15px;
+  height: 40px;
+}
+span img{
+  border-radius: 50%;
+  border-color: black;
+  width: 25px;
+  height: 25px;
+  margin-top: 10px;
+}
+.mr-20 {
+  margin-right: 20px;
+}
+.mt-15 {
+  margin-top: 15px;
+}
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: white;
+}
+
