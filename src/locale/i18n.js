@@ -7,7 +7,9 @@ export default {
       cancel: 'Vazgeç',
     },
     dashboard: {
-      dashboard: 'Panel'
+      dashboard: 'Panel',
+      about: 'Hakkında',
+      filterUsers: 'Kullanıcı filtrele',
     },
   },
   en: {
@@ -18,7 +20,9 @@ export default {
       cancel: 'Cancel',
     },
     dashboard: {
-      dashboard: 'Dashboard'
+      dashboard: 'Dashboard',
+      about: 'About',
+      filterUsers: 'Filter users',
     },
   },
 }
