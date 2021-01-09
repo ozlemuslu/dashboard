@@ -5,12 +5,17 @@ export default {
       returnBack: 'Geri',
       save: 'Kaydet',
       cancel: 'Vazgeç',
+      quit: 'Çıkış',
+      comingSoon: 'Yakında gelecek',
     },
     dashboard: {
       dashboard: 'Panel',
       about: 'Hakkında',
       filterUsers: 'Kullanıcı filtrele',
     },
+    navbar: {
+      languageChoice: 'Dil seçimi:',
+    }
   },
   en: {
     common: {
@@ -18,11 +23,16 @@ export default {
       returnBack: 'Back',
       save: 'Save',
       cancel: 'Cancel',
+      quit: 'Quit',
+      comingSoon: 'Coming soon',
     },
     dashboard: {
       dashboard: 'Dashboard',
       about: 'About',
       filterUsers: 'Filter users',
     },
+    navbar: {
+      languageChoice: 'Language Choice:',
+    }
   },
 }
