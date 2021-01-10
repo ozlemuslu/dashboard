@@ -1,29 +1,28 @@
 <template>
-<div>
-  <navbar class="sticky"/>
-  <div class="">
-    <div class="col-navbar white-smoke">
-      <div class="section-dashboard">
+  <div>
+    <navbar class="sticky" @refresh-page="refreshPage"/>
+    <div class="row">
+      <div class="col-navbar white-smoke col">
+        <div class="section-dashboard">
+        </div>
       </div>
-    </div>
 
-    <div class="col-navbar">
-      <div class="section-dashboard">
-        <!-- {{albums}} -->
-        <div v-for="post in posts"
-          :key="post.id"
-          >
-            {{ post}}
+      <div class="col-navbar col">
+        <div class="section-dashboard">
+          <!-- {{albums}} -->
+          <div v-for="post in posts"
+               :key="post.id">
+            {{ post }}
+          </div>
+        </div>
+      </div>
+
+      <div class="col-navbar white-smoke col">
+        <div class="section-dashboard">
         </div>
       </div>
     </div>
-
-     <div class="col-navbar white-smoke">
-      <div class="section-dashboard">
-      </div>
-    </div>
- </div>
-</div>
+  </div>
 
 </template>
 <script>
@@ -48,8 +47,8 @@ export default {
     this.getPosts();
   },
   methods: {
-  changeLanguage() {
-    
+  refreshPage() {
+    this.$emit('refresh-page');
   },
   filterUsers() {
     console.log('filterUsers')
