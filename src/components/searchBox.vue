@@ -1,6 +1,6 @@
 <template>
   <div>
-    <span><fa-icon icon="search" class="clickable"/></span>
+    <span><fa-icon icon="search"/></span>
     <input v-model="filter" :placeholder="placeholder" type="search" class="input">
   </div>
 </template>
