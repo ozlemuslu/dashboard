@@ -9,8 +9,8 @@ export default {
     return r;
   },
 
-  async getComments() {
-    const r = await client.get(dashboard.getComments);
+  async getComments(postId) {
+    const r = await client.get(`${dashboard.getPosts}/${postId}/comments`);
     return r;
   },
 
@@ -18,4 +18,13 @@ export default {
     const r = await client.get(dashboard.getAlbums);
     return r;
   },
+  async getUsers() {
+    const r = await client.get(dashboard.getUsers);
+    return r;
+  },
+  async getPhotos(postId) {
+    const r = await client.get(`${dashboard.getPosts}/${postId}/photos`);
+    return r;
+  }
+
 };

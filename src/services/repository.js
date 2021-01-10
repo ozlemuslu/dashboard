@@ -2,6 +2,7 @@ import Axios from 'axios';
 
 class Repository {
   constructor(options) {
+    //  token will use for login page
     this.token = localStorage.getItem('_token') || sessionStorage.getItem('_token');
     this.createInstance(options);
   }

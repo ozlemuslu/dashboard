@@ -1,19 +1,19 @@
 <template>
   <modal name="languageChoice" width="400" height="auto">
     <div class="margin-modal">
-    <div>
-      <div class="modal-header modal-title is-size-4">{{ $t('navbar.languageChoice') }} </div>
-    </div><br>
-    <div class="modal-body">
-    <div v-for="lang in availableLang" :key="lang">
-      <label class="clickable">
-        <input v-model="picked" type="radio" name="radio" :value="lang"> {{ lang }}
-      </label><br>
-    </div><br>
-    </div>
+      <div>
+        <div class="modal-header modal-title is-size-4">{{ $t('navbar.languageChoice') }} </div>
+      </div><br>
+      <div class="modal-body">
+        <div v-for="lang in availableLang" :key="lang">
+          <label class="clickable">
+            <input v-model="picked" type="radio" name="radio" :value="lang"> {{ lang }}
+          </label><br>
+        </div><br>
+      </div>
       <div class="modal-footer">
-        <button @click="save" class="is-pulled-right success-button"> {{ $t('common.save') }}</button>
-        <button @click="close" class="is-pulled-left">{{ $t('common.quit') }}</button>
+        <button class="is-pulled-right success-button" @click="save"> {{ $t('common.save') }}</button>
+        <button class="is-pulled-left" @click="close">{{ $t('common.quit') }}</button>
       </div>
     </div><br>
   </modal>
