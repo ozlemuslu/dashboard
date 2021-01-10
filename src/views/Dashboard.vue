@@ -1,13 +1,13 @@
 <template>
   <div>
-    <navbar class="sticky" @refresh-page="refreshPage"/>
+    <navbar class="sticky" @refresh-page="refreshPage" @filter="filter"/>
     <div class="row">
       <div class="col-navbar white-smoke col">
         <div class="section-dashboard">
         </div>
       </div>
 
-      <div v-if="showUsers && !showPhotos" class="col-navbar col" :class="{'height-less-twelve': lessThanTwelve}">
+      <div v-if="showUsers && !showPhotos" class="col-navbar col" :class="{'height-less-twelve': usersLessThanTwelve}">
         <div class="section-dashboard">
           <div v-for="user in users"
                :key="user.id"
@@ -18,7 +18,7 @@
         </div>
       </div>
 
-      <div v-if="!showUsers && showPhotos" class="col-navbar col" :class="{'height-less-twelve': lessThanTwelve}">
+      <div v-if="!showUsers && showPhotos" class="col-navbar col" :class="{'height-less-twelve': albumsLessThanTwelve}">
         <div class="section-dashboard">
           <div v-for="album in albums"
                :key="album.id"
@@ -29,23 +29,24 @@
         </div>
       </div>
 
-      <div v-if="showUsers && showPhotos" class="col-navbar col" :class="{'height-less-twelve': lessThanTwelve}">
+      <div v-if="showUsers && showPhotos" class="col-navbar col" :class="{'height-less-twelve': postsLessThanTwelve}">
         <div class="section-dashboard">
           <div v-for="post in posts"
                :key="post.id"
-               @click="choosePhoto(post.userId)">
+               @click="choosePost(post.id)">
             <span class="mr-20 clickable"><fa-icon icon="image"/></span>
             <span class="clickable">{{ post.title }}</span><br><br>
           </div>
         </div>
       </div>
 
-      <div v-if="!showUsers && !showPhotos" class="col-navbar col" :class="{'height-less-twelve': lessThanTwelve}">
+      <div v-if="!showUsers && !showPhotos" class="col-navbar col" :class="{'height-less-twelve': commentsLessThanTwelve}">
         <div class="section-dashboard">
           <div v-for="comment in comments"
                :key="comment.id">
             <span class="mr-20"><fa-icon icon="comment"/></span>
-            <span>{{ comment.name }} ' : ' {{ comment.body }}  </span>
+            <span> {{ `${comment.name}: ` }}</span>
+            <div> {{ comment.body }}</div>
           </div>
         </div>
       </div>
@@ -72,6 +73,7 @@ export default {
     return {
       showPhotos: false,
       showUsers: true,
+      tempUsers: [],
       photos: [],
       users: [],
       posts: [],
@@ -81,23 +83,31 @@ export default {
     };
   },
   computed: {
-    lessThanTwelve() {
+    usersLessThanTwelve() {
       return this.users.length < 20 ? true : false;
+    },
+    albumsLessThanTwelve() {
+      return this.albums.length < 20 ? true : false;
+    },
+    postsLessThanTwelve() {
+      return this.posts.length < 20 ? true : false;
+    },
+    commentsLessThanTwelve() {
+      return this.comments.length < 20 ? true : false;
     },
   },
   mounted() {
     this.getUsersInfo()
   },
   methods: {
-  async choosePhoto(postId) {
+  async choosePost(postId) {
     try {
-      this.photos = await dashboardService.getPhotos(postId);
+      // this.photos = await dashboardService.getPhotos(postId);
       this.comments = await dashboardService.getComments(postId);
     } catch (error) {
       this.$snotify.error(this.$t('errors.unknown'));
     }
     this.comments = this.comments.filter((el) => el.postId === postId);
-    this.
     this.showUsers = false;
     this.showPhotos = false;
   },
@@ -113,14 +123,15 @@ export default {
   refreshPage() {
     this.$emit('refresh-page');
   },
-  filterUsers() {
-    console.log('filterUsers')
+  filter(filterText) {
+    this.users = this.tempUsers.filter((el) => el.name.includes(filterText));
   },
   async getUsersInfo() {
     try {
     this.posts = await dashboardService.getPosts();
     this.albums = await dashboardService.getAlbums();
     this.users = await dashboardService.getUsers();
+    this.tempUsers = [...this.users];
     } catch (error) {
     this.$snotify.error(this.$t('errors.unknown'));
     }

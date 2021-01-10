@@ -15,7 +15,7 @@
         <div class="col-navbar">
           <div class="section-navbar"></div>
         </div>
-        <search-box v-model="filterText" class="searchBox mt-15" :placeholder="$t('dashboard.filterUsers')" @change="filterUsers"/>
+        <search-box v-model="filterText" class="searchBox mt-15" :placeholder="$t('dashboard.filterUsers')" @change="filterUsers(filterText)"/>
       </div>
 
     </div>
@@ -66,8 +66,8 @@ export default {
   refreshPage() {
     this.$emit('refresh-page');
   },
-  filterUsers() {
-    console.log('filterUsers');
+  filterUsers(filterText) {
+    this.$emit('filter', filterText);
   },
   openLanguageModal() {
     this.$modal.show('languageChoice');
