@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <Dashboard :key="componentKey" @refresh-page="rerender"/>
+    <vue-snotify/>
   </div>
 </template>
 
@@ -27,5 +28,5 @@ export default {
 
 <style lang="scss">
 @import "./sass/common";
-
+@import "~vue-snotify/styles/dark.scss";
 </style>

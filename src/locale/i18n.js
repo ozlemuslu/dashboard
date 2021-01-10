@@ -15,6 +15,9 @@ export default {
     },
     navbar: {
       languageChoice: 'Dil seçimi:',
+    },
+    errors: {
+      unknown: 'Bilinmeyen bir hata oluştu',
     }
   },
   en: {
@@ -33,6 +36,10 @@ export default {
     },
     navbar: {
       languageChoice: 'Language Choice:',
+    },
+    errors: {
+      unknown: 'An unknown error has occurred',
+
     }
   },
 }
