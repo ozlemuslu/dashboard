@@ -10,8 +10,8 @@
 span img{
   border-radius: 50%;
   border-color: black;
-  width: 25px;
-  height: 25px;
+  width: 30px;
+  height: 30px;
   margin-top: 10px;
 }
 .mr-20 {
@@ -35,7 +35,7 @@ span img{
   border-radius: 5px;
   color: white;
   text-align: center;
-  padding: 10px 21px;
+  padding: 5px 15px;
   display: inline-block;
   font-size: 13px;
   margin: 20px 2px;
@@ -50,5 +50,13 @@ span img{
   background-color: gray;
 }
 
+.panel-header {
+  font-size:25px;
+  font-style: italic;
+}
+
+.icon-font-size {
+ font-size: 20px;
+}
 
 

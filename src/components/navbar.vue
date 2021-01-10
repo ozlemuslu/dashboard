@@ -3,7 +3,7 @@
     <language-choice/>
     <div class="col-navbar">
       <div class="section-navbar mt-15">
-        <div class="section-navbar"><strong>{{ $t('dashboard.dashboard')}}</strong></div>
+        <div class="section-navbar"><strong class="panel-header">{{ $t('dashboard.dashboard')}}</strong></div>
       </div>
     </div>
 
@@ -15,7 +15,7 @@
         <div class="col-navbar">
           <div class="section-navbar"></div>
         </div>
-        <search-box v-model="filterText" class="searchBox mt-15" :placeholder="$t('dashboard.filterUsers')" @change="filterUsers(filterText)"/>
+        <search-box v-show="showFilter" v-model="filterText" class="searchBox mt-15" :placeholder="$t('dashboard.filterUsers')" @change="filterUsers(filterText)"/>
       </div>
 
     </div>
@@ -28,15 +28,15 @@
         </div>
         <div class="col-navbar">
           <div class="section-navbar mt-15">
-            <span class="mr-20 clickable"><fa-icon icon="home" @click="refreshPage"/></span>
+            <span class="mr-20 clickable icon-font-size"><fa-icon icon="home" @click="refreshPage"/></span>
             <!-- <span class="mr-20"><fa-icon icon="plus-square"/></span> -->
-            <span v-tooltip="$t('common.comingSoon')" class="mr-20 clickable"><fa-icon icon="heart"/></span>
-            <span class="mr-20 clickable" ><fa-icon icon="globe" @click="openLanguageModal"/></span>
+            <span v-tooltip="$t('common.comingSoon')" class="mr-20 clickable icon-font-size"><fa-icon icon="heart"/></span>
+            <span class="mr-20 clickable icon-font-size" ><fa-icon icon="globe" @click="openLanguageModal"/></span>
           </div>
         </div>
         <div class="col-navbar">
-          <div class="section-navbar clickable">
-            <span v-tooltip="$t('common.comingSoon')" class="mr-20"> <img src="../assets/ozlem.jpeg" alt=""></span>
+          <div class="section-navbar">
+            <span class="mr-20"> <img src="../assets/user.png" alt=""></span>
           </div>
         </div>
       </div>
@@ -54,6 +54,11 @@ export default {
   name: 'navbar',
   components: { searchBox, languageChoice },
   props: {
+    showFilter: {
+     type: Boolean,
+     required: true,
+     default: true,
+    }
   },
   data() {
     return {

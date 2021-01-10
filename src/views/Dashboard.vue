@@ -1,6 +1,6 @@
 <template>
   <div>
-    <navbar class="sticky" @refresh-page="refreshPage" @filter="filter"/>
+    <navbar class="sticky" :show-filter="showFilter" @refresh-page="refreshPage" @filter="filter"/>
     <div class="row">
       <div class="col-navbar white-smoke col">
         <div class="section-dashboard">
@@ -12,7 +12,7 @@
           <div v-for="user in users"
                :key="user.id"
                @click="chooseUser(user.id)">
-            <span class="mr-20 clickable"><fa-icon icon="user-circle"/></span>
+            <span class="mr-20 clickable icon-font-size"><fa-icon icon="user-circle"/></span>
             <span class="clickable">{{ user.name }}</span><br><br>
           </div>
         </div>
@@ -23,7 +23,7 @@
           <div v-for="album in albums"
                :key="album.id"
                @click="chooseAlbum(album.userId)">
-            <span class="mr-20 clickable"><fa-icon icon="images"/></span>
+            <span class="mr-20 clickable icon-font-size"><fa-icon icon="images"/></span>
             <span class="clickable">{{ album.title }}</span><br><br>
           </div>
         </div>
@@ -34,7 +34,7 @@
           <div v-for="post in posts"
                :key="post.id"
                @click="choosePost(post.id)">
-            <span class="mr-20 clickable"><fa-icon icon="image"/></span>
+            <span class="mr-20 clickable icon-font-size"><fa-icon icon="image"/></span>
             <span class="clickable">{{ post.title }}</span><br><br>
           </div>
         </div>
@@ -71,6 +71,7 @@ export default {
   },
   data() {
     return {
+      showFilter: true,
       showPhotos: false,
       showUsers: true,
       tempUsers: [],
@@ -119,6 +120,7 @@ export default {
     this.albums = this.albums.filter((el) => el.userId === userId);
     this.showUsers = false;
     this.showPhotos = true;
+    this.showFilter = false;
   },
   refreshPage() {
     this.$emit('refresh-page');
