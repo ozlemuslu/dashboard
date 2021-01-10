@@ -2,7 +2,7 @@
   <modal name="languageChoice" width="400" height="auto">
     <div class="margin-modal">
       <div>
-        <div class="modal-header modal-title is-size-4">{{ $t('navbar.languageChoice') }} </div>
+        <div><strong>{{ $t('navbar.languageChoice') }}</strong></div>
       </div><br>
       <div class="modal-body">
         <div v-for="lang in availableLang" :key="lang">
@@ -12,8 +12,8 @@
         </div><br>
       </div>
       <div class="modal-footer">
-        <button class="is-pulled-right success-button" @click="save"> {{ $t('common.save') }}</button>
-        <button class="is-pulled-left" @click="close">{{ $t('common.quit') }}</button>
+        <button class="is-pulled-right button success" @click="save"> {{ $t('common.save') }}</button>
+        <button class="is-pulled-left button quit" @click="close">{{ $t('common.quit') }}</button>
       </div>
     </div><br>
   </modal>

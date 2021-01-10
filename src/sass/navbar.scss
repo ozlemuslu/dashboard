@@ -30,4 +30,25 @@ span img{
 {
   cursor: pointer;
 }
+.button {
+  background-color: #4CAF50;
+  border-radius: 5px;
+  color: white;
+  text-align: center;
+  padding: 10px 21px;
+  display: inline-block;
+  font-size: 13px;
+  margin: 20px 2px;
+  cursor: pointer;
+}
+
+.success {
+  background-color: #4CAF50;
+}
+
+.quit {
+  background-color: gray;
+}
+
+
 
